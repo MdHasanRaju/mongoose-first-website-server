@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const userRouter = require("./Resources/users/user.router");
 const app = express();
 
-//username: mongoose-Setup
-//password: RPjocKM8wgAe1Ase
 app.use(express.json())
 
 mongoose
