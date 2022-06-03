@@ -5,7 +5,7 @@ const User = require('./user.modal');
 exports.createUser = async (req, res) => {
     try {
         const user =await User.create(req.body)
-        res.status(201).json({user})
+        res.status(200).json({user})
 
     } catch (error) {
         res.status(401).json({error})
@@ -32,16 +32,6 @@ exports.getUserById = async (req, res)  => {
     }
 }
 
-// delete method for a single user with id
-exports.deleteUserById = async (req, res) => {
-    try {
-        const user =await User.findByIdAndDelete(req.params.id)
-        res.status(200).json({user})
-    } catch (error) {
-        res.status(404).json({error})
-    }
-}
-
 // update method for a single user with id
 exports.updateUserById = async (req, res) => {
     try {
@@ -55,8 +45,18 @@ exports.updateUserById = async (req, res) => {
     }
 }
 
+// delete method for a single user with id
+exports.deleteUserById = async (req, res) => {
+    try {
+        const user =await User.findByIdAndDelete(req.params.id)
+        res.status(204).json({user})
+    } catch (error) {
+        res.status(404).json({error})
+    }
+}
 
-// Crud with email query
+
+// CRUD with email query
 // find a single user by email
 exports.getUserByEmail = async (req, res) => {
     try {

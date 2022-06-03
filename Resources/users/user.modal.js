@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema (
         },
         age:{
             type:Number,
-            maxLength:[10, 'age can not be more than 10 digits'],
+            maxLength:[3, 'age can not be more than 3 digits'],
             required:[true, 'please add your age']
         },
         phone:{

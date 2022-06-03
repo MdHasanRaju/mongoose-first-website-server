@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRouter = require("./Resources/users/user.router");
+// const productRouter = require("./Resources/products/product.router");
+// const userRouter = require("./Resources/users/user.router");
+const productsRouter = require("./Resources/products/product.router");
+const usersRouter = require("./Resources/users/user.router");
 const app = express();
 
 app.use(express.json())
@@ -16,6 +19,7 @@ mongoose
     console.log(err);
   });
 
-  app.use('/api/v1/user', userRouter)
+  app.use('/api/v1/users', usersRouter)
+  app.use('/api/v1/products', productsRouter)
 
 module.exports = app;
